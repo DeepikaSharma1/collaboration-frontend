@@ -1,0 +1,30 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="req in vm.friendRequests">
+                                <td>{{ req.user.username}}</td>
+                                <td>
+                                    <a href="" ng-click="vm.acceptFriendRequest(req.user.userId)" class="btn btn-success">Accept</a>
+                                </td>
+                                <td>
+                                    <a href="" ng-click="vm.rejectFriendRequest(req.user.userId)" class="btn btn-danger">Reject</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

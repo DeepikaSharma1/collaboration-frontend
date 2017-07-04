@@ -1,0 +1,45 @@
+
+<div class="container-fluid">
+    <div ng-show="loggedInUser === ''">
+        <div class="alert alert-danger">
+            <p>
+                You Are Not Logged In! Please <a href="#!/login" class="btn btn-link">Login</a> To Create Blog.
+            </p>
+            <p>
+                Not Registered? Register <a href="#!/register" class="btn btn-link">Here</a>
+            </p>
+        </div>
+    </div>
+    <div ng-hide="loggedInUser === ''">
+        <div class="container-fluid">
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">
+                    <h2>Create New Blog</h2>
+                </div>
+                <div class="panel-body">
+                    <form method="POST" role="form" class="form-horizontal" name="blogForm" ng-submit="vm.submit()">
+                        <div class="form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
+                                <input type="text" name="title" placeholder="Blog's Title" class="form-control" ng-model="vm.Blog.title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
+                                <textarea name="content" placeholder="Write Your Blog Here" class="form-control" ng-model="vm.Blog.contents" rows="5" cols=""></textarea>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <button type="submit" class="btn btn-primary">CREATE</button>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <button type="reset" class="btn btn-danger">RESET</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

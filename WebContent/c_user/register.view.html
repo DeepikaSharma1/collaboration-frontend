@@ -1,0 +1,56 @@
+
+<div class="container-fluid">
+    <div class="row">
+    	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-8 pull-left">
+    		<div ng-include="'c_carousel/image-carousel.html'"></div>
+    	</div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 pull-right">
+            <div class="panel panel-primary">
+                <div class="panel-heading panel-title text-capitalize text-center">
+                    User Registration Form
+                </div>
+                <div class="panel-body">
+                    <form method="POST" name="regForm" role="form" class="form-horizontal" ng-submit="vm.register()">
+                        <div class="form-group" ng-class="{ 'has-error': regForm.username.$dirty && regForm.username.$error.required }">
+                            <input type="text" name="username" class="form-control" placeholder="Username...." required="required" ng-model="vm.User.username">
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error': regForm.email.$dirty && regForm.email.$error.required }">
+                            <input type="email" name="email" class="form-control" placeholder="Email...." required="required" ng-model="vm.User.email">
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error': regForm.password.$dirty && regForm.password.$error.required }">
+                            <input type="password" id="passwd" name="password" class="form-control" placeholder="Password...." required="required" ng-model="vm.User.password">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="cpasswd" name="cpassword" class="form-control" placeholder="Confirm Password...." required="required" onkeyup="validate(); return false;">
+                            <span id="msg" class="msg"></span>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit" ng-disabled="regForm.$invalid || vm.dataLoading">Register</button>
+                        </div>
+                    </form>
+                    <script type="text/javascript">
+                    function validate() {
+                        var passwd = document.getElementById('passwd');
+                        var cpasswd = document.getElementById('cpasswd');
+                        var msg = document.getElementById('msg');
+                        var success = 'green';
+                        var failure = 'red';
+                        if (passwd.value === cpasswd.value) {
+                            cpasswd.style.backgroundColor = success;
+                            msg.style.color = success;
+                            msg.innerHTML = "Password Match!";
+                        } else {
+                            cpasswd.style.backgroundColor = failure;
+                            msg.style.color = failure;
+                            msg.innerHTML = "Password Did Not Match!";
+                        }
+                    }
+                    </script>
+                </div>
+                <div class="panel-footer">
+                    <small>Already Registered? <a href="#!/login" class="btn btn-link">Login</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

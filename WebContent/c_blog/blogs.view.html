@@ -1,0 +1,20 @@
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 pull-left" ng-repeat="blog in vm.blogs">
+        <div class="panel panel-info">
+            <div class="panel-heading text-capitalize text-center">
+                <a href="#!/blogDetails" class="btn btn-block btn-link">{{ blog.title}} - Date Created: {{ blog.dateCreated | date: 'medium' }}</a>
+            </div>
+            <div class="panel-body text-justify">
+                {{ blog.contents}}
+            </div>
+            <div class="panel-footer">
+                Created By: {{ blog.user.username | uppercase }}
+                <span class="pull-right"><a href="#!/editBlog" class="btn btn-block btn-info" ng-show="blog.user.username === loggedInUser.username">Edit Blog</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-4 pull-right">
+        <a href="#!/createBlog" class="btn btn-block btn-link">Create New Blog</a>
+    </div>
+</div>

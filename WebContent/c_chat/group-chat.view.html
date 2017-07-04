@@ -1,0 +1,29 @@
+
+<div class="container">
+    <form method="post" class="form-horizontal" role="chatForm" name="chatForm" ng-submit="sendMessage()">
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                <input type="text" ng-model="Message" placeholder="Type Your Text Here...." class="form-control">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 text-center">
+                <span ng-bind="MAX_LEN - Message.length">{{ MAX_LEN - Message.length}}</span>
+                <button ng-disabled="Message.length > MAX_LEN || Message.length === 0" class="btn-primary">Send</button>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <table class="table table-bordered table-responsive table-striped">
+                <tbody>
+                    <tr ng-repeat="msg in messages| orderBy: 'time': true">
+                        <td>
+                            <strong>{{ msg.username}}</strong> >>>>> @ <span>{{ msg.time | date: 'HH:mm' }}</span>
+                            <span ng-class="{self: msg.self}">{{ msg.message}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

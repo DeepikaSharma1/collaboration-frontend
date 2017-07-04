@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="main-app">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Welcome To Collaboration Platform</title>
+    <!-- Bootstrap -->
+    <link href="c_resources/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="c_resources/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"
+    />
+    <link href="c_resources/css/styles.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="data:;base64,iVBORw0KGgo=">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="container-fluid" id="top" ng-hide="loggedInUser">
+        <div ng-include="'c_navbar/navbar.view.html'"></div>
+    </div>
+    <div class="row" id="content">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-offset-2">
+            <div ng-class="{'alert': FlashMsg, 'alert-success': FlashMsg.type === 'success', 'alert-danger': FlashMsg.type === 'failure'}"
+                ng-if="FlashMsg" ng-bind="FlashMsg.message"></div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div ng-view=""></div>
+        </div>
+    </div>
+    <div id="bottom"></div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="resources/js/bootstrap.js" type="text/javascript"></script>
+    <!-- AngularJS JavaScript plugins -->
+    <script src="resources/js/angular.js" type="text/javascript"></script>
+    <script src="resources/js/angular-route.js" type="text/javascript"></script>
+    <script src="resources/js/angular-cookies.js" type="text/javascript"></script>
+    <!-- JavaScript plugins for Chatting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <!-- User defined JavaScript -->
+    <script src="script.js" type="text/javascript"></script>
+    <!-- User defined Angular Services -->
+    <script src="c_services/auth.service.js" type="text/javascript"></script>
+    <script src="c_services/blog.service.js" type="text/javascript"></script>
+    <script src="c_services/event.service.js" type="text/javascript"></script>
+    <script src="c_services/friend.service.js" type="text/javascript"></script>
+    <script src="c_services/groupchat.service.js" type="text/javascript"></script>
+    <script src="c_services/job.service.js" type="text/javascript"></script>
+    <script src="c_services/message.service.js" type="text/javascript"></script>
+    <script src="c_services/privatechat.service.js" type="text/javascript"></script>
+    <script src="c_services/user.service.js" type="text/javascript"></script>
+    <!-- User defined Angular controllers -->
+    <script src="c_admin/admin.controller.js" type="text/javascript"></script>
+    <script src="c_blog/blog.controller.js" type="text/javascript"></script>
+    <script src="c_chat/groupchat.controller.js" type="text/javascript"></script>
+    <script src="c_event/event.controller.js" type="text/javascript"></script>
+    <script src="c_friend/friend.controller.js" type="text/javascript"></script>
+    <script src="c_friend/privatechat.controller.js" type="text/javascript"></script>
+    <script src="c_home/home.controller.js" type="text/javascript"></script>
+    <script src="c_job/job.controller.js" type="text/javascript"></script>
+    <script src="c_user/user.controller.js" type="text/javascript"></script>
+</body>
+
+</html>

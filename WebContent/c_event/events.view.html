@@ -1,0 +1,18 @@
+
+<div class="container-fluid">
+    <div class="row" ng-repeat="evt in vm.events">
+        <div class="col-xs-12 col-md-8 col-sm-12 col-lg-6">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center text-capitalize text-info">
+                    <a href="#!/eventDetails" ng-click="vm.getEvent(evt.eventId)" class="btn btn-link btn-block">{{ evt.title }}</a>
+                </div>
+                <div class="panel-body text-justify">
+                    {{ evt.description }}
+                </div>
+                <div class="panel-footer">
+                    Event Status: {{ evt.status }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

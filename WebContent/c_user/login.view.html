@@ -1,0 +1,31 @@
+
+<div class="container-fluid">
+    <div class="row">
+    	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-8 pull-left">
+    		<div ng-include="'c_carousel/image-carousel.html'"></div>
+    	</div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 pull-right">
+            <div class="panel panel-primary">
+                <div class="panel-heading panel-title text-capitalize text-center">
+                    Registered User Login
+                </div>
+                <div class="panel-body">
+                    <form role="form" name="loginForm" method="POST" ng-submit="vm.login()">
+                        <div class="form-group" ng-class="{ 'has-error': loginForm.username.$dirty && loginForm.username.$error.required }">
+                            <input type="text" name="username" class="form-control" placeholder="Username...." ng-model="vm.User.username" required="required">
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error': loginForm.password.$dirty && loginForm.password.$error.required }">
+                            <input type="password" name="password" class="form-control" placeholder="Password...." ng-model="vm.User.password" required="required">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button> <i ng-if="vm.dataLoading" class="fa fa-spinner" aria-hidden="true"></i>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer text-right">
+                    <small>Not Registered? <a href="#!/register" class="btn btn-link">Join Us</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th>Friend's Name</th>
+                        <th>Is Online</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="frnd in vm.friends">
+                        <td>
+                            <a href="" class="btn btn-link" ng-click="vm.chat(frnd.friend.username)">{{ frnd.user.username }}</a>
+                        </td>
+                        <td>{{ frnd.isOnline }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

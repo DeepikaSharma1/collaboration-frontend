@@ -1,0 +1,60 @@
+<div id="img-carousel" class="carousel slide container-fluid" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li data-target="#img-carousel" data-slide-to="0" class="active"></li>
+		<li data-target="#img-carousel" data-slide-to="1" class=""></li>
+		<li data-target="#img-carousel" data-slide-to="2" class=""></li>
+		<li data-target="#img-carousel" data-slide-to="3" class=""></li>
+	</ol>
+	<div class="carousel-inner">
+		<div class="item active">
+			<img alt="First Slide" src="resources/images/collaborate.jpg">
+			<div class="container-fluid">
+				<div class="carousel-caption">
+					<h2>Collaborate</h2>
+					<div>Collaborate with your friends and teachers to enhance your projects and learn new things.</div>
+					<div ng-show="loggedInUser === ''">
+						<a class="btn btn-link btn-lg" href="#!/register" role="button">Sign Up Today</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<img alt="Second Slide" src="resources/images/blog.jpg">
+			<div class="container-fluid">
+				<div class="carousel-caption">
+					<h2>Blogs</h2>
+					<div>Create Blogs, read blogs, make comments on blog created by your friends and other users.</div>
+					<div ng-show="loggedInUser === ''">
+						<a class="btn btn-link btn-lg" href="#!/register" role="button">Sign Up Today</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<img alt="Third Slide" src="resources/images/friendship.jpg">
+			<div class="container-fluid">
+				<div class="carousel-caption">
+					<h2>Friends</h2>
+					<div>Find your friends here. Connect to them, collaborate with them, chat with them.</div>
+					<div ng-show="loggedInUser === ''">
+						<a class="btn btn-link btn-lg" href="#!/register" role="button">Sign Up Today</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<img alt="Forth Slide" src="resources/images/find-job.jpg">
+			<div class="container-fluid">
+				<div class="carousel-caption">
+					<h2>Jobs</h2>
+					<div>View, search and apply for jobs suitable for you, all at one place.</div>
+					<div ng-show="loggedInUser === ''">
+						<a class="btn btn-link btn-lg" href="#!/register" role="button">Sign Up Today</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a class="left carousel-control" href="#img-carousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+	<a class="right carousel-control" href="#img-carousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>

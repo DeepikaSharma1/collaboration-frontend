@@ -1,0 +1,37 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div ng-include="'c_carousel/image-carousel.html'"></div>
+        </div>
+    </div>
+    <div class="row" ng-show="loggedInUser.role === 'ADMIN'">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <a class="btn btn-block btn-lg btn-link" href="#!/manageBlogs">Manage Blogs</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <a class="btn btn-block btn-lg btn-link" href="#!/manageEvents">Manage Events</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <a class="btn btn-block btn-lg btn-link" href="#!/manageJobs">Manage Jobs</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <a class="btn btn-block btn-lg btn-link" href="#!/manageUsers">Manage Users</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+            <a class="btn btn-block btn-link btn-lg" href="#!/blogs">BLOG(S)</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+            <a class="btn btn-block btn-link btn-lg" href="#!/events">EVENT(S)</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+            <a class="btn btn-block btn-link btn-lg" href="#!/friends">FRIEND(S)</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+            <a class="btn btn-block btn-link btn-lg" href="#!/jobs">JOB(S)</a>
+        </div>
+    </div>
+
+</div>
