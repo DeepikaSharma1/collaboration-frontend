@@ -16,7 +16,7 @@
         vm.getBlog = function (blogId) {
             console.log('Inside BlogCtrl::getBlog()');
             BlogSvc.getBlogById(blogId).then(function (data) {
-                $rootScope.SelectedBlog = data;
+            	$log.info('Redirecting To #!/blogDetails....');
                 $location.path('/blogDetails');
             }, errorCallback);
         };
@@ -50,6 +50,10 @@
                 $location.path('/blogs');
             }, errorCallback);
         };
+        vm.editBlog = function (blogId) {
+            $location.path('/editBlog');
+        };
+
         vm.submit = function () {
             console.log('Inside BlogCtrl::submit()');
             vm.Blog.User = $rootScope.loggedInUser;
