@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     console.log('Inside event.controller.js');
-    angular.module('mainApp').controller('EventCtrl', function ($location, $log, EventSvc) {
+    angular.module('main-app').controller('EventCtrl', function ($location, $log, EventSvc) {
         var vm = this;
         vm.events = [];
         vm.getAllEvents = function () {
@@ -17,11 +17,11 @@
                 $location.path('/eventDetails');
             }, errorCallback);
         };
-        
+
         (function () {
             vm.getAllEvents();
         })();
-        
+
         function errorCallback(reason) {
             $log.info(reason);
         }

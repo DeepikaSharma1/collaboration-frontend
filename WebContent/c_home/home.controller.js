@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     console.log('Inside home.controller.js');
-    angular.module('mainApp').controller('HomeCtrl', function ($rootScope, $location, $log, UserSvc, AuthSvc) {
+    angular.module('main-app').controller('HomeCtrl', function ($rootScope, $location, $log, UserSvc, AuthSvc) {
         var vm = this;
         vm.User = null;
         vm.users = [];
@@ -19,18 +19,18 @@
                 $location.path('/login');
             });
         };
-        
+
         (function () {
             loadLoggedInUser();
             loadRegisteredUsers();
         })();
-        
+
         function loadLoggedInUser() {
             console.log('Inside HomeCtrl::loadLoggedInUser()');
             $log.info($rootScope.loggedInUser);
             vm.User = $rootScope.loggedInUser;
         }
-        
+
         function loadRegisteredUsers() {
             UserSvc.getAllUsersExceptLoggedIn().then(function (data) {
                 $log.info(data);

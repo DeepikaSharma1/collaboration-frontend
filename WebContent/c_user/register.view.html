@@ -1,9 +1,8 @@
-
 <div class="container-fluid">
     <div class="row">
-    	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-8 pull-left">
-    		<div ng-include="'c_carousel/image-carousel.html'"></div>
-    	</div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8 pull-left">
+            <div ng-include="'c_carousel/image-carousel.view.html'"></div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 pull-right">
             <div class="panel panel-primary">
                 <div class="panel-heading panel-title text-capitalize text-center">
@@ -21,7 +20,8 @@
                             <input type="password" id="passwd" name="password" class="form-control" placeholder="Password...." required="required" ng-model="vm.User.password">
                         </div>
                         <div class="form-group">
-                            <input type="password" id="cpasswd" name="cpassword" class="form-control" placeholder="Confirm Password...." required="required" onkeyup="validate(); return false;">
+                            <input type="password" id="cpasswd" name="cpassword" class="form-control" placeholder="Confirm Password...." required="required"
+                                onkeyup="validate(); return false;">
                             <span id="msg" class="msg"></span>
                         </div>
                         <div class="form-group">
@@ -29,22 +29,22 @@
                         </div>
                     </form>
                     <script type="text/javascript">
-                    function validate() {
-                        var passwd = document.getElementById('passwd');
-                        var cpasswd = document.getElementById('cpasswd');
-                        var msg = document.getElementById('msg');
-                        var success = 'green';
-                        var failure = 'red';
-                        if (passwd.value === cpasswd.value) {
-                            cpasswd.style.backgroundColor = success;
-                            msg.style.color = success;
-                            msg.innerHTML = "Password Match!";
-                        } else {
-                            cpasswd.style.backgroundColor = failure;
-                            msg.style.color = failure;
-                            msg.innerHTML = "Password Did Not Match!";
+                        function validate() {
+                            var passwd = document.getElementById('passwd');
+                            var cpasswd = document.getElementById('cpasswd');
+                            var msg = document.getElementById('msg');
+                            var success = 'green';
+                            var failure = 'red';
+                            if (passwd.value === cpasswd.value) {
+                                cpasswd.style.backgroundColor = success;
+                                msg.style.color = success;
+                                msg.innerHTML = "Password Match!";
+                            } else {
+                                cpasswd.style.backgroundColor = failure;
+                                msg.style.color = failure;
+                                msg.innerHTML = "Password Did Not Match!";
+                            }
                         }
-                    }
                     </script>
                 </div>
                 <div class="panel-footer">

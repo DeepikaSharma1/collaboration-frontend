@@ -1,11 +1,11 @@
-
 <div class="container-fluid">
     <div class="row">
         <form method="post" class="form-horizontal" role="form" name="eventForm">
             <h2>Event Creation/Updation Form</h2>
             <div class="form-group">
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 text-center">
-                    <input type="text" name="eventId" class="form-control" disabled="disabled" ng-model="vm.Event.eventId">
+                    <input type="hidden" name="eventId" ng-model="vm.Event.eventId">
+                    <!--<input type="text" name="eventId" class="form-control" disabled="disabled" ng-model="vm.Event.eventId"> -->
                 </div>
             </div>
             <div class="form-group">

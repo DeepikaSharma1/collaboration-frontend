@@ -1,8 +1,8 @@
 (function () {
-    'use strict';
-    angular.module('main-app').service('GroupChatSvc', function ($q, $timeout, $rootScope) {
-        console.log('Inside GroupChatSvc()....');
-        var User = $rootScope.loggedInUser;
+	'use strict';
+	angular.module('main-app').service('GroupChatSvc', function ($q, $timeout, $rootScope) {
+		console.log('Inside GroupChatSvc()....');
+		var User = $rootScope.loggedInUser;
 		var service = {};
 		var listener = $q.defer();
 		var socket = {
@@ -15,32 +15,32 @@
 		service.CHAT_TOPIC = '/topic/message';
 		service.CHAT_BROKER = '/app/groupChat';
 
-		service.receive = function() {
+		service.receive = function () {
 			console.log('Inside GroupChatSvc::receive()');
 			return listener.promise;
 		};
 
-		service.send = function(Message) {
+		service.send = function (Message) {
 			console.log('Inside GroupChatSvc::send()');
 			var genId = Math.floor(Math.random() * 1000000);
 			socket.stomp.send(service.CHAT_BROKER, {
-				priority : 9
+				priority: 9
 			}, JSON.stringify({
-				id : genId,
-				message : Message,
-				username : User.username
+				id: genId,
+				message: Message,
+				username: User.username
 			}));
 			msgIds.push(genId);
 		};
 
-		var reconnect = function() {
+		var reconnect = function () {
 			console.log('Inside GroupChatSvc::reconnect()....');
-			$timeout(function() {
+			$timeout(function () {
 				initialize();
 			}, this.RECONNECT_TIMEOUT);
 		};
 
-		var getMessage = function(data) {
+		var getMessage = function (data) {
 			console.log('Inside GroupChatSvc::getMessage()....');
 			var Message = JSON.parse(data);
 			var outMsg = {};
@@ -52,14 +52,14 @@
 			return outMsg;
 		};
 
-		var startListener = function() {
+		var startListener = function () {
 			console.log('Inside GroupChatSvc::startListener()....');
-			socket.stomp.subscribe(service.CHAT_TOPIC, function(data) {
+			socket.stomp.subscribe(service.CHAT_TOPIC, function (data) {
 				listener.notify(getMessage(data.body));
 			});
 		};
 
-		var initialize = function() {
+		var initialize = function () {
 			console.log('Inside GroupChatSvc::initialize()....');
 			socket.client = new SockJS(service.SOCKET_URL);
 			socket.stomp = Stomp.over(socket.client);
@@ -70,5 +70,5 @@
 		initialize();
 
 		return service;
-    });
+	});
 })();

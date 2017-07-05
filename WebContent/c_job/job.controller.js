@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('mainApp').controller('JobCtrl', function ($rootScope, $scope, $location, $log, JobSvc) {
+    angular.module('main-app').controller('JobCtrl', function ($rootScope, $scope, $location, $log, JobSvc) {
         var vm = this;
         vm.Job = null;
         vm.jobs = [];

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     console.log('Inside friend.controller.js');
-    angular.module('mainApp').controller('FriendCtrl', function ($rootScope, $scope, $location, $log, FriendSvc, UserSvc, MsgSvc) {
+    angular.module('main-app').controller('FriendCtrl', function ($rootScope, $scope, $location, $log, FriendSvc, UserSvc, MsgSvc) {
         var vm = this;
         vm.Friend = null;
         vm.User = null;

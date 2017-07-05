@@ -7,18 +7,18 @@
                 clearFlashMessages();
             });
         })();
-        
+
         function clearFlashMessages() {
             var FlashMsg = $rootScope.FlashMsg;
             if (FlashMsg) {
                 if (!FlashMsg.keepAfterLocationChange) {
-                    delete($rootScope.FlashMsg);
+                    delete ($rootScope.FlashMsg);
                 } else {
                     FlashMsg.keepAfterLocationChange = false;
                 }
             }
         }
-        
+
         return {
             success: function (message, keepAfterLocationChange) {
                 $rootScope.FlashMsg = {

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     console.log('Inside blog.controller.js');
-    angular.module('mainApp').controller('BlogCtrl', function ($rootScope, $scope, $location, $log, BlogSvc) {
+    angular.module('main-app').controller('BlogCtrl', function ($rootScope, $scope, $location, $log, BlogSvc) {
         var vm = this;
         vm.Blog = null;
         vm.Comment = null;

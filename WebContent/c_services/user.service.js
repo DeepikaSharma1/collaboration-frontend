@@ -6,48 +6,48 @@
         return {
             getAllUsers: function () {
                 return $http.get(BASE_URL + '/all/').then(
-                        successCallback, errorCallback
-                        );
+                    successCallback, errorCallback
+                );
             },
             getAllUsersExceptLoggedIn: function () {
                 return $http.get(BASE_URL + '/others/').then(
-                        successCallback, errorCallback
-                        );
+                    successCallback, errorCallback
+                );
             },
             getUserById: function (userId) {
                 return $http.get(BASE_URL + '/userId/', userId).then(
-                        successCallback, errorCallback
-                        );
+                    successCallback, errorCallback
+                );
             },
             getUserByUsername: function (username) {
                 return $http.get(BASE_URL + '/username/', username).then(
-                        successCallback, errorCallback
-                        );
+                    successCallback, errorCallback
+                );
             },
             register: function (User) {
                 return $http.post(BASE_URL + '/', User).then(
-                        registerSuccessCallback, errorCallback
-                        );
+                    registerSuccessCallback, errorCallback
+                );
             },
             update: function (User) {
                 return $http.put(BASE_URL + '/' + User.userId, User).then(
-                        successCallback, errorCallback
-                        );
+                    successCallback, errorCallback
+                );
             },
             enable: function (userId) {
                 return $http.put(BASE_URL + '/enable/' + userId).then(
-                        successCallback, errorCallback
-                        );
+                    successCallback, errorCallback
+                );
             },
             disable: function (userId) {
                 return $http.put(BASE_URL + '/disable/' + userId).then(
-                        successCallback, errorCallback
-                        );
+                    successCallback, errorCallback
+                );
             },
             makeAdmin: function (userId) {
                 return $http.put(BASE_URL + '/makeAdmin/' + userId).then(
-                        successCallback, errorCallback
-                        );
+                    successCallback, errorCallback
+                );
             }
         };
 
@@ -66,7 +66,7 @@
         }
 
         function registerSuccessCallback(response) {
-        	$log.info('Inside registerSuccessCallback()....');
+            $log.info('Inside registerSuccessCallback()....');
             $log.info(response);
             var newResponse = { success: true };
             return newResponse;
