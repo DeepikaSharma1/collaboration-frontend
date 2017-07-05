@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('mainApp').controller('PrivateChatCtrl', function ($scope, PrivateChatSvc) {
+    angular.module('main-app').controller('PrivateChatCtrl', function ($scope, PrivateChatSvc) {
         $scope.messages = [];
         $scope.message = '';
         $scope.MAX_LEN = 200;

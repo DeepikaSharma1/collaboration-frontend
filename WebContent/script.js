@@ -113,8 +113,12 @@
     function run($rootScope, $location, $cookies, $http, $log) {
         $log.info('Inside run()....');
         $rootScope.loggedInUser = $cookies.getObject('loggedInUser') || {};
-        $rootScope.signedIn = (loggedInUser === undefined);
-        $log.info('User Signed In? ' + signedIn);
+        /*
+        console.log('Logged In User---->');
+        $log.info($rootScope.loggedInUser.username);					// prints undefined initially
+        */
+        $rootScope.signedIn = $rootScope.loggedInUser.username !== undefined;
+        $log.info('User Signed In? ' + $rootScope.signedIn);			// prints false initially
         if ($rootScope.loggedInUser) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.loggedInUser;
         }
