@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     console.log('Inside home.controller.js');
-    angular.module('main-app').controller('HomeCtrl', function ($rootScope, $location, $log, UserSvc, AuthSvc) {
+    angular.module('main-app').controller('HomeCtrl', function ($rootScope, $location, $window, $log, UserSvc, AuthSvc) {
         var vm = this;
         vm.User = null;
         vm.users = [];
@@ -11,12 +11,14 @@
                 if (response.success) {
                     window.alert('You Logged Out Successfully!');
                     $location.path('/login');
+                    $window.location.reload();
                 }
             }, function (reason) {
                 $log.info(reason);
                 window.alert('Error Logging Out, Please Contact Admin!');
                 AuthSvc.clearCredentials();
                 $location.path('/login');
+                $window.location.reload();
             });
         };
 

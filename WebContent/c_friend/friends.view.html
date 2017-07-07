@@ -19,7 +19,7 @@
                         	<p ng-if="!frnd.isOnline">No</p>
                         </td>
                         <td>
-                        	<a class="btn btn-block btn-info btn-lg" href="#!/privateChat">Chat</a>
+                        	<a class="btn btn-block btn-info btn-lg" ng-click="vm.chat(frnd.friend.username)">Chat</a>
                         </td>
                     </tr>
                 </tbody>
