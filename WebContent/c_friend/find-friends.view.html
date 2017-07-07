@@ -23,7 +23,7 @@
                         <td>{{ usr.email }}</td>
                         <td>{{ usr.role }}</td>
                         <td>
-                            <button type="button" class="btn btn-warning" ng-click="vm.sendFriendRequest(usr.userId)">Send Request</button>
+                            <button type="button" class="btn btn-warning" ng-click="vm.sendFriendRequest(usr.userId)" ng-disabled="vm.isFriend(usr.userId) || vm.hasRequestSent(usr.userId)">Send Request</button>
                         </td>
                     </tr>
                 </tbody>

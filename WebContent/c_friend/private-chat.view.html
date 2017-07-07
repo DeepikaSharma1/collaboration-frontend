@@ -1,13 +1,13 @@
 
 <div class="container">
-    <form method="post" class="form-horizontal" role="chatForm" name="chatForm" ng-submit="sendMessage()">
+    <form method="post" class="form-horizontal" role="form" name="chatForm" ng-submit="sendMessage()">
         <div class="form-group">
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-                <input type="text" ng-model="message" placeholder="Type Your Text Here...." class="form-control">
+                <input type="text" ng-model="Message" placeholder="Type Your Text Here...." class="form-control">
             </div>
             <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 text-center">
-                <span ng-bind="MAX_LEN - message.length">{{ MAX_LEN - message.length}}</span>
-                <button ng-disabled="message.length > MAX_LEN || message.length === 0" class="btn-primary">Send</button>
+                <span ng-bind="MAX_LEN - Message.length">{{ MAX_LEN - Message.length}}</span>
+                <button ng-disabled="Message.length > MAX_LEN || Message.length === 0" class="btn btn-primary btn-lg btn-block">Send</button>
             </div>
         </div>
     </form>
