@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 text-center">
-            <form name="jobsForm" method="POST" role="form" class="form-horizontal">
+            <form name="form" method="POST" role="form" class="form-horizontal">
                 <h2>Job Creation/Updation Form</h2>
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 text-center">
@@ -18,14 +18,15 @@
                         <input type="text" name="description" class="form-control" ng-model="vm.Job.description" required="required">
                     </div>
                 </div>
-                <div class="form-group">
-                    <select name="status" class="form-control">
-                        <option value="" selected >-- Select One --</option>
-                        <option value="NEW">New Job</option>
-                        <option value="EXPIRED">Expired</option>
-                    </select>
-                </div>
-                <div class="form-group">
+				<div class="form-group">
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+						<label><input name="jobStatus" type="radio" ng-model="vm.Job.status" value="JOB_NEW"> New</label>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+						<label><input name="jobStatus" type="radio" ng-model="vm.Job.status" value="JOB_CLOSED"> Closed</label>
+					</div>
+				</div>
+				<div class="form-group">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center" ng-show="vm.Job.jobId === undefined">
                         <button type="submit" class="btn btn-primary" ng-click="vm.postJob(vm.Job)">Create</button>
                     </div>

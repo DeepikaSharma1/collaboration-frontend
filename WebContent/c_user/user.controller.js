@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     console.log('Inside user.controller.js');
-    angular.module('main-app').controller('UserCtrl', function ($location, $log, UserSvc, AuthSvc, MsgSvc) {
+    angular.module('main-app').controller('UserCtrl', function ($rootScope, $location, $log, UserSvc, AuthSvc, MsgSvc) {
         var vm = this;
         vm.User = null;
         vm.users = [];
@@ -11,7 +11,6 @@
             AuthSvc.login(vm.User.username, vm.User.password, function (response) {
                 $log.info(response);
                 if (response.success) {
-                    $log.info(response.success);
                     AuthSvc.setCredentials(response.data);
                     $log.info('Redirecting To Home....')
                     $location.path('/');

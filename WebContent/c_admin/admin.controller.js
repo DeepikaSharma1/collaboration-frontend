@@ -1,8 +1,9 @@
 (function () {
     'use strict';
     console.log('Inside admin.controller.js');
-    angular.module('main-app').controller('AdminCtrl', function ($rootScope, $location, $log, UserSvc, BlogSvc, JobSvc, EventSvc) {
+    angular.module('main-app').controller('AdminCtrl', function ($rootScope, $scope, $location, $log, UserSvc, BlogSvc, JobSvc, EventSvc) {
         var vm = this;
+        vm.event = null;
         vm.blogs = [];
         vm.events = [];
         vm.jobs = [];
@@ -36,12 +37,20 @@
 
         vm.createEvent = function (Event) {
             console.log('Inside AdminCtrl::createEvent())');
-            EventSvc.create(Event).then(vm.getAllEvents, errorCallback);
+            EventSvc.create(Event).then(function(data) {
+            	vm.reset();
+            	vm.getAllEvents();
+			}, errorCallback);
         };
 
         vm.updateEvent = function (Event) {
             console.log('Inside AdminCtrl::updateEvent())');
-            EventSvc.update(Event).then(vm.getAllEvents, errorCallback);
+            console.log('Updating Event ====>');
+            console.log(Event);
+            EventSvc.update(Event).then(function(data) {
+            	vm.reset();
+            	vm.getAllEvents();
+			}, errorCallback);
         };
 
         vm.editEvent = function (eventId) {
@@ -64,12 +73,18 @@
 
         vm.postJob = function (Job) {
             console.log('Inside AdminCtrl::postJob())');
-            JobSvc.create(Job).then(vm.getAllJobs, errorCallback);
+            JobSvc.create(Job).then(function(data) {
+            	vm.reset();
+            	vm.getAllJobs();
+			}, errorCallback);
         };
 
         vm.updateJob = function (Job) {
             console.log('Inside AdminCtrl::updateJob())');
-            JobSvc.update(Job).then(vm.getAllJobs, errorCallback);
+            JobSvc.update(Job).then(function(data) {
+            	vm.reset();
+            	vm.getAllJobs();
+			}, errorCallback);
         };
 
         vm.editJob = function (jobId) {
@@ -103,6 +118,13 @@
         vm.makeAdmin = function (userId) {
             console.log('Inside AdminCtrl::makeAdmin())');
             UserSvc.makeAdmin(userId).then(vm.getAllUsers, errorCallback);
+        };
+        
+        vm.reset = function () {
+            console.log('Inside AdminCtrl::reset()');
+            vm.Event = {};
+            vm.Job = {};
+            $scope.form.$setPristine();
         };
 
         (function () {
