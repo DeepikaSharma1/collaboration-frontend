@@ -109,14 +109,10 @@
             });
     }
 
-    run.$inject = ['$rootScope', '$location', '$cookies', '$http', '$log'];
-    function run($rootScope, $location, $cookies, $http, $log) {
+    run.$inject = ['$rootScope', '$location', '$cookies', '$http', '$log', '$window'];
+    function run($rootScope, $location, $cookies, $http, $log, $window) {
         $log.info('Inside run()....');
         $rootScope.loggedInUser = $cookies.getObject('loggedInUser') || {};
-        /*
-        console.log('Logged In User---->');
-        $log.info($rootScope.loggedInUser.username);					// prints undefined initially
-        */
         $rootScope.signedIn = $rootScope.loggedInUser.username !== undefined;
         $log.info('User Signed In? ' + $rootScope.signedIn);			// prints false initially
         if ($rootScope.loggedInUser) {
@@ -125,6 +121,15 @@
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             $log.info('Inside $on() Event Handler....');
+            // Following code is used to reload entire page based on authentication status.
+            var loginUrl = "http://localhost:10080/collaboration-frontend/#!/login";
+            var logoutUrl = "http://localhost:10080/collaboration-frontend/#!/logout";
+            if (current === loginUrl && next !== loginUrl) {
+            	$window.location.reload();
+            }
+            if (current !== logoutUrl && next === logoutUrl) {
+            	$window.location.reload();
+            }
             var restrictedPage = $.inArray($location.path(), [
                 '/', '/login', '/register',
                 '/blogs', '/createBlog', '/blogDetails',
@@ -150,6 +155,7 @@
                 }
             }
         });
+        
     }
 })();
 
