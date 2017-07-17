@@ -5,7 +5,7 @@
                 <div class="panel-heading panel-title text-capitalize text-center">{{ SelectedJob.title }}</div>
                 <div class="panel-body text-justify">{{ SelectedJob.description }}</div>
                 <div class="panel-footer">
-                    <button type="button" class="btn btn-block btn-link" ng-click="vm.applyJob(SelectedJob.jobId)">Apply</button>
+                    <button type="button" class="btn btn-block btn-link" ng-click="vm.applyJob(SelectedJob.jobId)" ng-disabled="vm.hasApplied(SelectedJob.jobId)">Apply</button>
                 </div>
             </div>
         </div>

@@ -32,6 +32,21 @@
                 vm.getJobsApplied();
             }, errorCallback);
         };
+        
+        vm.hasApplied = function (jobId) {
+			console.log("Inside JobCtrl::hasApplied()");
+			var loggedInUserId = $rootScope.loggedInUser.userId;
+			$log.info("Logged In User Id: " + loggedInUserId);
+			for (var i = 0; i < vm.jobsApplied.length; i++) {
+				var jobApplied = vm.jobsApplied[i];
+				$log.info(jobApplied);
+				if (jobApplied.job.jobId === jobId && jobApplied.user.userId === loggedInUserId) {
+					$log.info(jobApplied.status === "JOB_APPLIED");
+					return (jobApplied.status === "JOB_APPLIED");
+				}
+			}
+			return false;
+		};
 
         function errorCallback(reason) {
             $log.info(reason);

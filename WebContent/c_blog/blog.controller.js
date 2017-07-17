@@ -30,6 +30,7 @@
             console.log('Inside BlogCtrl::createBlog()');
             BlogSvc.create(Blog).then(function (response) {
                 $log.info(response);
+                alert("Blog Created Successfully! Waiting for Admin's Approval....");
                 vm.getApprovedBlogs();
                 $location.path('/blogs');
             }, errorCallback);

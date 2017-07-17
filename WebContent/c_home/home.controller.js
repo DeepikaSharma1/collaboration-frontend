@@ -13,7 +13,6 @@
                     $location.path('/login');
                 }
             }, function (reason) {
-                $log.info(reason);
                 window.alert('Error Logging Out, Please Contact Admin!');
                 AuthSvc.clearCredentials();
                 $location.path('/login');
@@ -32,6 +31,7 @@
         }
 
         function loadRegisteredUsers() {
+        	console.log("Inside HomeCtrl::loadRegisteredUsers()");
             UserSvc.getAllUsersExceptLoggedIn().then(function (data) {
                 $log.info(data);
                 vm.users = data;
