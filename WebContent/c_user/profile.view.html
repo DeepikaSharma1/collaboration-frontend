@@ -1,0 +1,24 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{ loggedInUser.username || uppercase}} Profile</h3>
+				</div>
+				<div class="panel-body">
+					<form action="http://localhost:10080/profile-restbackend/upload/profile/image" method="POST" class="form-inline" role="form"
+					 enctype="multipart/form-data">
+						<div class="form-group">
+							<label class="sr-only" for="file">Choose An Image: </label>
+							<input type="file" class="form-control" id="file" name="file">
+						</div>
+						<button type="submit" class="btn btn-primary">Upload</button>
+					</form>
+				</div>
+				<div class="panel-footer pull-right">
+					<a href="#!/" class="btn btn-link">Back To Home</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

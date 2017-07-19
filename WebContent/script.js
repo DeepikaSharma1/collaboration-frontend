@@ -24,6 +24,11 @@
                 controller: 'UserCtrl',
                 controllerAs: 'vm'
             })
+            .when('/profile', {
+                templateUrl: 'c_user/profile.view.html',
+                /*controller: 'UserCtrl',
+                controllerAs: 'vm'*/
+            })
             .when('/blogs', {
                 templateUrl: 'c_blog/blogs.view.html',
                 controller: 'BlogCtrl',
