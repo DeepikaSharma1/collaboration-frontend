@@ -15,8 +15,9 @@
                             <a href="" class="btn btn-link" ng-click="vm.chat(frnd.friend.username)">{{ frnd.user.username }}</a>
                         </td>
                         <td>
-                        	<p ng-if="frnd.isOnline">Yes</p>
-                        	<p ng-if="!frnd.isOnline">No</p>
+                        	{{ frnd.isOnline }}
+                        	<!-- <p ng-if="frnd.isOnline">Yes</p>
+                        	<p ng-if="!frnd.isOnline">No</p> -->
                         </td>
                         <td>
                         	<a class="btn btn-block btn-info btn-lg" ng-click="vm.chat(frnd.friend.username)">Chat</a>

@@ -9,15 +9,15 @@
     function config($routeProvider, $locationProvider) {
         console.log('Inside config()....');
         $routeProvider
-            .when('/', {
+            .when('/home', {
                 templateUrl: 'c_home/home.view.html',
                 controller: 'HomeCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
             })
             .when('/login', {
                 templateUrl: 'c_user/login.view.html',
                 controller: 'UserCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
             })
             .when('/register', {
                 templateUrl: 'c_user/register.view.html',
@@ -114,8 +114,8 @@
             });
     }
 
-    run.$inject = ['$rootScope', '$location', '$cookies', '$http', '$log', '$window'];
-    function run($rootScope, $location, $cookies, $http, $log, $window) {
+    run.$inject = ['$rootScope', '$location', '$cookies', '$http', '$log'];
+    function run($rootScope, $location, $cookies, $http, $log) {
         $log.info('Inside run()....');
         $rootScope.loggedInUser = $cookies.getObject('loggedInUser') || {};
         $rootScope.signedIn = $rootScope.loggedInUser.username !== undefined;
@@ -125,18 +125,10 @@
         }
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
-            $log.info('Inside $on() Event Handler....');
-            // Following code is used to reload entire page based on authentication status.
-            var loginUrl = "http://localhost:10080/collaboration-frontend/#!/login";
-            var logoutUrl = "http://localhost:10080/collaboration-frontend/#!/logout";
-            if (current === loginUrl && next !== loginUrl) {
-            	$window.location.reload();
-            }
-            if (current !== logoutUrl && next === logoutUrl) {
-            	$window.location.reload();
-            }
+            $log.info('Inside $on(locationChangeStart) Event Handler....');
+            
             var restrictedPage = $.inArray($location.path(), [
-                '/', '/login', '/register',
+                '/home', '/login', '/register',
                 '/blogs', '/createBlog', '/blogDetails',
                 '/events', '/eventDetails',
                 '/jobs', '/jobDetails',
@@ -156,7 +148,7 @@
                 ]) === 0;
                 if (adminPage && role !== 'ADMIN') {
                     alert('You Are Not Authorized To View This Page!');
-                    $location.path('/');
+                    $location.path('/home');
                 }
             }
         });

@@ -13,7 +13,7 @@
                 if (response.success) {
                     AuthSvc.setCredentials(response.data);
                     $log.info('Redirecting To Home....')
-                    $location.path('/');
+                    $location.path('/home');
                     $window.location.reload();
                 } else {
                     MsgSvc.failure('Error Logging In! Please Contact Admin');
@@ -21,6 +21,7 @@
                 }
             });
         };
+
         vm.register = function () {
             console.log('Inside UserCtrl::register()');
             vm.dataLoading = true;

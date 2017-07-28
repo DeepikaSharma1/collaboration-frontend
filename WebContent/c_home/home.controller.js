@@ -5,7 +5,7 @@
         var vm = this;
         vm.User = null;
         vm.users = [];
-        vm.logout = function () {
+        /*vm.logout = function () {
             console.log('Inside HomeCtrl::logout()');
             AuthSvc.logout().then(function (response) {
                 if (response.success) {
@@ -17,7 +17,7 @@
                 AuthSvc.clearCredentials();
                 $location.path('/login');
             });
-        };
+        };*/
 
         (function () {
             loadLoggedInUser();
