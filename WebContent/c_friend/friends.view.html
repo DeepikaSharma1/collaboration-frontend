@@ -10,17 +10,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="frnd in vm.friends">
+                    <tr ng-repeat="friend in vm.friends">
                         <td>
-                            <a href="" class="btn btn-link" ng-click="vm.chat(frnd.friend.username)">{{ frnd.user.username }}</a>
+                            <a href="" class="btn btn-link" ng-click="vm.chat(friend.user.username)">{{ friend.user.username | uppercase }}</a>
                         </td>
                         <td>
-                        	{{ frnd.online }}
-                        	<!-- <p ng-if="frnd.isOnline">Yes</p>
-                        	<p ng-if="!frnd.isOnline">No</p> -->
+                        	{{ friend.user.online }}
                         </td>
                         <td>
-                        	<a class="btn btn-block btn-info btn-lg" ng-click="vm.chat(frnd.friend.username)">Chat</a>
+                        	<a class="btn btn-block btn-info btn-lg" ng-click="vm.chat(friend.user.username)">Chat</a>
                         </td>
                     </tr>
                 </tbody>
